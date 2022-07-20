@@ -13,6 +13,7 @@ function App() {
   const userImage = (newURL) => {
     setImgUrl(newURL);
     console.log(imgUrl);
+    console.log(newURL);
   }
 
   return (
