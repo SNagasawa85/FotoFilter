@@ -1,16 +1,18 @@
 import {useState} from 'react';
 import React from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 
 
 export default (props) => {
     
     const [imgUrl, setImgUrl] = useState('');
 
+    const navigate = useNavigate();
 
     const submitHandler = (e) =>{
         e.preventDefault();
         props.onNewUrl(imgUrl);
-    
+        navigate('/fotos/custom');    
     }
 
     return (

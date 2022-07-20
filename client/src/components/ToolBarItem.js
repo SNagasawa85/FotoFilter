@@ -1,10 +1,11 @@
 import React from 'react';
 
-export default () => {
+export default ({name, active, handleClick}) => {
+
 
 return(
-    <button>
-        Dongle
+    <button className={`toolbar-item ${active ? 'active' : '' }`} onClick={ handleClick }>
+        {name}
     </button>
     )
 }
