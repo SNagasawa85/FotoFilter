@@ -2,9 +2,7 @@ import React from 'react';
 
 export default () => {
 
-return(
-    <button>
-        Dongle
-    </button>
+    return (
+        <div>this is the slider part</div>
     )
-}
+};
