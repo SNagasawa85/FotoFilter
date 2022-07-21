@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import ToolBarItem from './ToolBarItem';
+import { useNavigate } from 'react-router-dom';
 
 export default (props) => {
     
@@ -78,7 +79,7 @@ export default (props) => {
     const { url } = props;
     console.log(url);
     const setBGstring = "url('" + url + "')";
-
+    const navigate = useNavigate();
 
     const [options, setOptions] = useState(toolBar);
     const [selectedOption, setSelectedOption] = useState(0);
@@ -86,7 +87,9 @@ export default (props) => {
 
     const selectedTool = options[selectedOption];
 
-
+    const goHome = () => {
+        navigate('/');
+    }
     return (
         <div className='container' >
             <div className='image' id='image' style={ {
@@ -97,6 +100,10 @@ export default (props) => {
                 } }> 
             {/* <img src={url}/> */}
 
+            </div>
+            <div className='button-container'>
+                <button onClick={ goHome }>Home</button>
+                <button>Save?</button>
             </div>
             <div className='toolbar'>
                 {options.map((option, idx) => {
@@ -114,7 +121,7 @@ export default (props) => {
 
 
             <div className='slider'>
-
+                <input type='range'/>
             </div>
         </div>
     )
