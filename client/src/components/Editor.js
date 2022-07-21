@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import ToolBarItem from './ToolBarItem';
 import { useNavigate } from 'react-router-dom';
 
+import styles from '../styles/editor.module.css';
+
 export default (props) => {
     
     const toolBar = [
@@ -91,21 +93,31 @@ export default (props) => {
         navigate('/');
     }
     return (
-        <div className='container' >
-            <div className='image' id='image' style={ {
+        <div className={styles.mainContainer} >
+            <div className={styles.imageContainer} id='image' style={ {
                 backgroundImage: `url(${url})`, 
-                width: '100vw', 
-                height: '100vw',
-                backgroundRepeat: 'no-repeat'
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
+                marginTop: '1%'
                 } }> 
-            {/* <img src={url}/> */}
+                
+            </div>
+            <div className={styles.titleContainer}>
+                <p>F<br/>i<br/>l<br/>t<br/>e<br/>r</p>
+                <p>oto</p>
+            </div>
+            
 
-            </div>
-            <div className='button-container'>
+            <div className={styles.buttonContainer}>
                 <button onClick={ goHome }>Home</button>
-                <button>Save?</button>
+                <button>Help</button>
+                <button>Save</button>
             </div>
-            <div className='toolbar'>
+
+            <div>
+            </div>
+
+            <div className={styles.toolbarContainer}>
                 {options.map((option, idx) => {
                     return (
                         <ToolBarItem
@@ -120,8 +132,8 @@ export default (props) => {
             </div>
 
 
-            <div className='slider'>
-                <input type='range'/>
+            <div className={styles.sliderContainer}>
+                <input type='range' className={styles.slider}/>
             </div>
         </div>
     )
