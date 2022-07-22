@@ -2,7 +2,7 @@
 
 A MERN project collaboration between Stephen Nagasawa and Jason Frantz!
 
-- github.com/SNagasawa85
+<a href='https://www.github.com/SNagasawa85'>Stephen Nagasawa GitHub<a>
 
 - github.com/JasonF222
 
