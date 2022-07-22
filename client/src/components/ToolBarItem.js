@@ -6,7 +6,7 @@ export default ({name, active, handleClick}) => {
 
 
 return(
-    <button className={`toolbarItem ${active ? 'active' : '' } ${styles.toolbarItem}`} onClick={ handleClick }>
+    <button className={`${active ? styles.active : '' } ${styles.toolbarItem}`} onClick={ handleClick }>
         {name}
     </button>
     )
