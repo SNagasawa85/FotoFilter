@@ -16,6 +16,6 @@
     margin-bottom: 10px;
 }
 
-.toolbarItem:active {
+.toolbarItem.active {
     transform: scale(1.2);
 }
