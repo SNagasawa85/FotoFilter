@@ -110,6 +110,55 @@ export default (props) => {
         return newstyle;
     }
 
+    const showHelp = () => {
+        const pTwo = document.getElementById('pTwo');
+        pTwo.style.transform = 'scaleY(0)';
+        pTwo.style.transitionDuration = '0.1s';
+        // open up the help div
+        const helpGrab = document.getElementById('helpDiv');
+        helpGrab.style.transform = 'scaleY(1)';
+        helpGrab.style.transitionDuration = '0.8s';
+        // apply border to slider bar
+        const sliderDiv = document.getElementById('sliderBox');
+        sliderDiv.style.borderColor = 'hotpink';
+        const pOne = document.getElementById('pOne');
+        pOne.style.transform = 'scaleY(1)'; 
+        const toolDiv = document.getElementById('toolBox');
+        toolDiv.style.borderColor = 'transparent';
+    }
+
+    const nextHelper = () => {
+        // remove border from slider bar
+        const sliderDiv = document.getElementById('sliderBox');
+        sliderDiv.style.borderColor = 'transparent';
+        // apply border to buttons
+        const toolDiv = document.getElementById('toolBox');
+        toolDiv.style.borderColor = 'hotpink';
+        // switch paragraphs shown to coordinate with borders
+        const pOne = document.getElementById('pOne');
+        pOne.style.transform = 'scaleY(0)';
+        pOne.style.transitionDuration = '0.8s';
+        const pTwo = document.getElementById('pTwo');
+        pTwo.style.transform = 'scaleY(1)';
+        pTwo.style.transitionDuration = '0.8s';
+    }
+
+    const closeHelper = () => {
+        // remove border from both slier and buttons
+        const helpGrab = document.getElementById('helpDiv');
+        helpGrab.style.transform = 'scaleY(0)';
+        helpGrab.style.transitionDuration = '0.8s';
+        const sliderDiv = document.getElementById('sliderBox');
+        sliderDiv.style.borderColor = 'transparent';
+        const toolDiv = document.getElementById('toolBox');
+        toolDiv.style.borderColor = 'transparent';
+        const pOne = document.getElementById('pOne');
+        pOne.style.transform = 'scaleY(1)';        
+        const pTwo = document.getElementById('pTwo');
+        pTwo.style.transform = 'scaleY(0)';
+
+    }
+
     const handleReset = () => {
         setOptions(toolBar)
     }
@@ -119,7 +168,7 @@ export default (props) => {
     }
 
     return (
-
+        <>
         <div className={styles.mainContainer} >
             <div className={styles.imageContainer} id='image' style={newImageStyle()} > 
             </div>
@@ -131,15 +180,14 @@ export default (props) => {
 
             <div className={styles.buttonContainer}>
                 <button onClick={ goHome }>Home</button>
-                <button>Help</button>
+                <button onClick={ showHelp }>Help</button>
                 <button onClick={ handleReset }>Reset</button>
-                <button>Save</button>
+                <button onClick={() => {alert('Save Feature Coming Soon!')}}>Save</button>
+                
             </div>
+            
 
-            <div>
-            </div>
-
-            <div className={styles.toolbarContainer}>
+            <div className={styles.toolbarContainer} id='toolBox'>
                 {options.map((option, idx) => {
                     return (
                         <ToolBarItem
@@ -150,13 +198,21 @@ export default (props) => {
                         />
                     )
                 }
-                )}
+                )} 
             </div>
 
-
-            <div className={styles.sliderContainer}>
+            <div className={styles.sliderContainer} id='sliderBox'>
                 <Slider min={selectedTool.range.min} max={selectedTool.range.max} value={selectedTool.value} handleChange={ handleSliderChange }/>
             </div>
+            
         </div>
+        <div className={styles.helpDiv} id='helpDiv'>
+            <p id='pOne' >This is the slider bar. Moving the tracker will adjust the intensity of the filter!</p>
+            <br/>
+            <p id='pTwo' >These buttons will select the effect being applied to the image. Apply and adjust as many or as few effects as you want!</p>
+            <button id='nextBtn' onClick={ nextHelper }>Next</button>
+            <button id='closeBtn' onClick={ closeHelper }>Got it!</button>
+        </div>
+    </>
     )
 }
