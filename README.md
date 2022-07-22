@@ -1,5 +1,4 @@
 # FotoFiltr
-# A Work in Progress
 
 A MERN project collaboration between Stephen Nagasawa and Jason Frantz!
 
