@@ -1,0 +1,126 @@
+
+.mainContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "image buttons"
+        "slider buttons"
+        "toolbar buttons";
+    height: 100%;
+    width: 100vw;
+}
+
+.titleContainer {
+    display: flex;
+    color: black;
+    z-index: 2;
+    position: absolute;
+    left: 20px;
+    top: 40px;
+}
+
+.titleContainer p {
+    cursor: default;
+    text-align: start;
+    font-size: 26pt;
+}
+
+.imageContainer {
+    grid-area: image;
+    box-shadow: 0px 0px 15px 10px black;
+    margin: auto;
+    margin-top: 1%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: black;
+    width: 700px;
+    height: 700px;
+
+}
+
+.sliderContainer {
+    grid-area: slider;
+    margin-top: 2rem;
+    padding: 2rem;
+    border: 5px solid transparent;
+    width: 50%;
+    margin-left: 22%;
+}
+
+
+
+.toolbarContainer {
+    display: flex;
+    grid-area: toolbar;
+    width: fit-content;
+    margin: 0px auto;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 5px solid transparent;
+}
+
+.buttonContainer {
+    grid-area: buttons;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-size: 20pt;
+    font-weight: bolder;
+    transition-duration: 0.75s;
+}
+
+.buttonContainer button:hover {
+    transform: scale(1.2);
+    transition-duration: 0.75s;
+}
+
+/* helper container */
+.helpDiv {
+    position: fixed;
+    z-index: 5;
+    bottom: -75px;
+    right: 25px;
+    width: 350px;
+    height: 350px;
+    transform: scaleY(0);
+    transition-duration: 0.8s;
+}
+
+#pOne {
+    transform: scaleY(1);
+    transition-duration: 0.8s;
+}
+
+#pTwo {
+    transform: scaleY(0);
+    transition-duration: 0.8s;
+}
+
+.helpDiv button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-size: 20pt;
+    font-weight: bolder;
+    transition-duration: 0.75s;
+}

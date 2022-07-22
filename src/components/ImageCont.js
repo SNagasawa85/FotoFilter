@@ -1,4 +1,4 @@
-import e from 'cors';
+
 import React, { useState } from 'react';
 
 export default () => {

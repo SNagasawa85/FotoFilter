@@ -30,7 +30,7 @@ export default (props) => {
                 <div className={styles.formContainer}>
                     <div>
                         <label className={styles.formLabel}>Add your own Image URL: </label><br />
-                        <input type='text' onChange={e => setImgUrl(e.target.value)} className={styles.formInput} autofocus/><br />
+                        <input type='text' onChange={e => setImgUrl(e.target.value)} className={styles.formInput}/><br />
                         <button type='submit' className={styles.formButton}>+</button>
                     </div>
                 </div>
