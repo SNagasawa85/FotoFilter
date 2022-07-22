@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import ToolBarItem from './ToolBarItem';
 import { useNavigate } from 'react-router-dom';
-
+import Slider from './Slider';
 import styles from '../styles/editor.module.css';
+import { set } from 'mongoose';
 
 export default (props) => {
     
@@ -89,18 +90,36 @@ export default (props) => {
 
     const selectedTool = options[selectedOption];
 
+    const handleSliderChange = ({target}) => {
+        setOptions(prevOptions => {
+            return prevOptions.map((tool, idx)=> {
+                if(idx !== selectedOption){
+                    return tool;
+                }
+                return {...tool,value: target.value}
+            })
+        })
+    };
+
+    const newImageStyle = () => {
+        
+        const filters = options.map(option => {
+            return `${option.property}(${option.value}${option.unit})`
+        })
+        let newstyle = {filter: filters.join(' ')};
+        newstyle.backgroundImage = `url(${url})`;
+        return newstyle;
+    
+    }
+
     const goHome = () => {
         navigate('/');
     }
+
     return (
+
         <div className={styles.mainContainer} >
-            <div className={styles.imageContainer} id='image' style={ {
-                backgroundImage: `url(${url})`, 
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-                marginTop: '1%'
-                } }> 
-                
+            <div className={styles.imageContainer} id='image' style={newImageStyle()} > 
             </div>
             <div className={styles.titleContainer}>
                 <p>F<br/>i<br/>l<br/>t<br/>e<br/>r</p>
@@ -133,7 +152,7 @@ export default (props) => {
 
 
             <div className={styles.sliderContainer}>
-                <input type='range' className={styles.slider}/>
+                <Slider min={selectedTool.range.min} max={selectedTool.range.max} value={selectedTool.value} handleChange={ handleSliderChange }/>
             </div>
         </div>
     )
