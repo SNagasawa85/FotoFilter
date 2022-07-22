@@ -6,6 +6,8 @@ import ImageCont from './components/ImageCont';
 import Landing from './views/Landing';
 import { Routes, Route} from 'react-router-dom'
 import Editor from './components/Editor';
+import styles from './styles/backStyle.module.css'
+
 
 function App() {
   const [imgUrl, setImgUrl] = useState('');
