@@ -102,14 +102,16 @@ export default (props) => {
     };
 
     const newImageStyle = () => {
-        
         const filters = options.map(option => {
             return `${option.property}(${option.value}${option.unit})`
         })
         let newstyle = {filter: filters.join(' ')};
         newstyle.backgroundImage = `url(${url})`;
         return newstyle;
-    
+    }
+
+    const handleReset = () => {
+        setOptions(toolBar)
     }
 
     const goHome = () => {
@@ -130,6 +132,7 @@ export default (props) => {
             <div className={styles.buttonContainer}>
                 <button onClick={ goHome }>Home</button>
                 <button>Help</button>
+                <button onClick={ handleReset }>Reset</button>
                 <button>Save</button>
             </div>
 

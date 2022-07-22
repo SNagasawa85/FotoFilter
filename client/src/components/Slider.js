@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from '../styles/slider.module.css';
+
 export default ({min, max, value, handleChange}) => {
     return (
         <div>
@@ -8,6 +10,7 @@ export default ({min, max, value, handleChange}) => {
         max={max} 
         value={value}
         onChange={handleChange}
+        className={styles.slider}
         />
         </div>
     )

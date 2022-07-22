@@ -1,0 +1,22 @@
+.slider {
+    -webkit-appearance: none;
+    margin-left: 25%;
+    width: 50%;
+    height: 10px;
+    cursor: grab;
+    transform: skew(-20deg);
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 0px 0px 5px 5px black;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 40px;
+    transform: skew(-10deg);
+    background-image: linear-gradient(to bottom left, rgb(70, 70, 70), whitesmoke);
+    border: 3px solid black;
+    box-shadow: 0px 0px 5px 2px black;
+}
